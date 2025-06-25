@@ -10,6 +10,7 @@ import time
 import csv
 
 if __name__ == '__main__':
+    # maps_name_options = ['random-32-32-10', 'Berlin', 'empty-16-16']
     maps_name = ['random-32-32-10']
     map_n = 0
     min_agents = 2
@@ -41,8 +42,8 @@ if __name__ == '__main__':
         all_targets = []
 
         for i in range(max_numOfAgents):
-            all_sources.append([map_agents[i].param2, map_agents[i].param1])
-            all_targets.append([map_agents[i].param4, map_agents[i].param3])
+            all_sources.append([map_agents[i].param2, map_agents[i].param1])  # start position
+            all_targets.append([map_agents[i].param4, map_agents[i].param3])  #  goal position
 
         for n_a in range(min_agents, max_numOfAgents):
             start_time = time.time()
