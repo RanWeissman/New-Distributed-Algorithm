@@ -1,6 +1,5 @@
 
-# Distributed Conflict Based Search (DCBS)
-
+<h1 style="color: purple; font-size: 64px;">Distributed Conflict Based Search (DCBS)</h1>
 ## 🧠 Brief Explanation
 
 This project implements the **Distributed Conflict Based Search (DCBS)** algorithm, a **new** technique for solving the **Multi-Agent Path Finding (MAPF)** problem. The goal is to compute collision-free paths for multiple agents in a shared environment, such as robots navigating in a warehouse.
