@@ -3,24 +3,24 @@
 
 ## 🧠 Brief Explanation
 
-This project implements the **Distributed Conflict Based Search (DCBS)** algorithm, an advanced technique for solving the **Multi-Agent Path Finding (MAPF)** problem. The goal is to compute collision-free paths for multiple agents in a shared environment, such as robots navigating in a warehouse.
+This project implements the **Distributed Conflict Based Search (DCBS)** algorithm, a **new** technique for solving the **Multi-Agent Path Finding (MAPF)** problem. The goal is to compute collision-free paths for multiple agents in a shared environment, such as robots navigating in a warehouse.
 
 DCBS is a distributed version of the traditional Conflict Based Search (CBS) algorithm. It enables agents to independently plan their paths and coordinate via message passing to resolve conflicts, achieving scalability and near-optimal performance.
 
 ---
 ## 🙏 Acknowledgment
 
-This project is inspired by the **Conflict-Based Search (CBS)** algorithm, a groundbreaking method for solving Multi-Agent Path Finding problems. We would like to express our deep appreciation to **Prof. Guni Sharon**, who introduced CBS in collaboration with **Prof. Roni Stern**, **Prof. Ariel Felner**, and **Prof. Nathan Sturtevant**.
+This project is inspired by the **Conflict-Based Search (CBS)** algorithm, a groundbreaking method for solving Multi-Agent Path Finding problems. We would like to express our deep appreciation to **Prof. Roni Stern**, who introduced CBS in collaboration with **Prof. Guni Sharon**, **Prof. Ariel Felner**, and **Prof. Nathan Sturtevant**.
 
-Their foundational work has significantly shaped the field of cooperative pathfinding and served as the core motivation for our distributed variant:
+Their foundational work has significantly shaped the field of cooperative pathfinding and served as the core motivation for our distributed variant.
 
 ---
 
 ## 📖 Citation 
 
 If you use this project or base your research on it, please cite the original CBS work as follows:
-- 
-- Sharon, G., Stern, R., Felner, A., & Sturtevant, N. (2012). *Meta-agent conflict-based search for optimal multi-agent path finding*. In Proceedings of the International Symposium on Combinatorial Search (Vol. 3, No. 1, pp. 97–104).
+-
+Sharon, G., Stern, R., Felner, A., & Sturtevant, N. (2012). *Meta-agent conflict-based search for optimal multi-agent path finding*. In Proceedings of the International Symposium on Combinatorial Search (Vol. 3, No. 1, pp. 97–104).
 
 ## 🌍 Area
 
@@ -97,10 +97,9 @@ The experiment evaluates DCBS on multiple dimensions:
 
 ## 🔬 Future Improvements
 
-- Optimize conflict resolution strategy and node expansion.
-- Reduce redundant message passing.
-- Improve A* pathfinding efficiency.
-- Investigate centralized-decentralized hybrid models.
+- Deepen the comparison between DCBS and CBS, focusing on A* behavior and identifying key differences.
+- Test a strategy where only one agent starts the search to reduce duplicate nodes and message overhead.
+- Enhance runtime using smarter conflict selection and A* optimizations, exploring other performance boosts.
 
 ---
 
