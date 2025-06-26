@@ -44,7 +44,7 @@ Sharon, G., Stern, R., Felner, A., & Sturtevant, N. (2012). *Meta-agent conflict
 
 2. **Run the Main Script**
    ```bash
-   python Main.py
+   python main.py
    ```
 
 3. **Output**
@@ -102,21 +102,3 @@ The experiment evaluates DCBS on multiple dimensions:
 - Enhance runtime using smarter conflict selection and A* optimizations, exploring other performance boosts.
 
 ---
-
-## 📁 Project Structure
-
-```plaintext
-.
-├── A_star_algorithm.py           # Low-level A* planner with heuristics
-├── constraint_tree_node.py       # Data structures for conflict and constraints
-├── dmapf_solver.py               # Orchestrates distributed solving
-├── dmapf_solver_agent.py         # Individual agent logic in DCBS
-├── mapf.py                       # MAPF problem and solution data classes
-├── messages.py                   # Message types used for agent communication
-├── read_map_scen.py              # Map and scenario file reader
-├── Main.py                       # Entry point and experiment driver
-├── Maps/                         # Contains .map and .scen files
-└── results/                      # Output CSV files
-```
-
-

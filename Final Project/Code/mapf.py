@@ -25,8 +25,8 @@ class MapfSolution(dict):
         for a1 in self.keys():
             for a2 in self.keys():
                 if a1 != a2:
-                    pathLength = min(len(self[a1]), len(self[a2]))
-                    for i in range(pathLength):
+                    path_length = min(len(self[a1]), len(self[a2]))
+                    for i in range(path_length):
                         if self[a1][i] == self[a2][i]:
                             return False
         return True
@@ -38,7 +38,7 @@ class MapfSolution(dict):
         return st
 
     def cost(self):
-        sumCost = 0
+        sum_cost = 0
         for a in self.keys():
-            sumCost += len(self[a])
-        return sumCost
+            sum_cost += len(self[a])
+        return sum_cost

@@ -21,7 +21,7 @@ class PathForAgentMessage(Message):
 
 
 class DeclareSolutionMessage(Message):
-    """ This means the best solution seens so far might be optimal  """
+    """ This means the best solution  so far might be optimal  """
 
     def __init__(self, from_agent: int, to_agent: int, incumbent: MapfSolution):
         super().__init__(from_agent=from_agent, to_agent=to_agent)
@@ -29,7 +29,7 @@ class DeclareSolutionMessage(Message):
 
 
 class DeclareConflictMessage(Message):
-    """ This means the best solution seens so far might be optimal  """
+    """ This means the best solution  so far might be optimal  """
 
     def __init__(self, from_agent: int, to_agent: int, ct_node: ConstraintTreeNode, conflict: Conflict):
         super().__init__(from_agent=from_agent, to_agent=to_agent)
@@ -38,11 +38,8 @@ class DeclareConflictMessage(Message):
 
 
 class DeclareOthersConflictMessage(Message):
-    """ This means the best solution seens so far might be optimal  """
+    """ This means the best solution  so far might be optimal  """
 
     def __init__(self, from_agent: int, to_agent: int, ct_node: ConstraintTreeNode):
         super().__init__(from_agent=from_agent, to_agent=to_agent)
         self.ct_node = ct_node
-
-
-

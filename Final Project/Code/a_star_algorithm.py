@@ -110,7 +110,7 @@ def constrained(child, constraints):
 
 
 def calc_all_heuristic(terrain, target):
-    heuristic_map = [[0 for i in range(len(terrain))] for j in range(len(terrain[0]))]  # zeros to heuristic_map
+    heuristic_map = [[0 for _ in range(len(terrain))] for _ in range(len(terrain[0]))]  # zeros to heuristic_map
 
     for i in range(len(terrain)):  # blocs to heuristic_map as -1
         for j in range(len(terrain[0])):
@@ -135,10 +135,10 @@ def calc_all_heuristic(terrain, target):
                 if [f_m[0] + 1, f_m[1]] not in explored_map and [f_m[0] + 1, f_m[1]] not in temp_frontier:
                     temp_frontier.append([f_m[0] + 1, f_m[1]])
             if f_m[1] < len(terrain[0]) - 1 and terrain[f_m[0]][f_m[1] + 1] == ".":  # Right
-                if [f_m[0] , f_m[1] + 1] not in explored_map and [f_m[0] , f_m[1] + 1] not in temp_frontier:
+                if [f_m[0], f_m[1] + 1] not in explored_map and [f_m[0], f_m[1] + 1] not in temp_frontier:
                     temp_frontier.append([f_m[0], f_m[1] + 1])
             if f_m[1] > 0 and terrain[f_m[0]][f_m[1] - 1] == ".":  # left
-                if [f_m[0] , f_m[1] - 1] not in explored_map and [f_m[0] , f_m[1] - 1] not in temp_frontier:
+                if [f_m[0], f_m[1] - 1] not in explored_map and [f_m[0], f_m[1] - 1] not in temp_frontier:
                     temp_frontier.append([f_m[0], f_m[1] - 1])
 
         frontier_map = temp_frontier
@@ -146,4 +146,3 @@ def calc_all_heuristic(terrain, target):
         current_cost += 1
 
     return heuristic_map
-

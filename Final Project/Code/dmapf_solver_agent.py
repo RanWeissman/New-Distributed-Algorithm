@@ -1,4 +1,4 @@
-from A_star_algorithm import AStarAlgorithm
+from a_star_algorithm import AStarAlgorithm
 from mapf import *
 from messages import Message, DeclareConflictMessage, DeclareSolutionMessage, DeclareOthersConflictMessage, \
     PathForAgentMessage
@@ -31,9 +31,9 @@ class DMapfSolverAgent:
         self.incumbent_solution = None  # Best solution found so far
         self.state = DMapfSolverAgent.INIT_STATE
         self._root_solution = MapfSolution()
-        self._open_list = list()  # TODO: Shoudl be priority list based on the cost of the solution in each node
+        self._open_list = list()  # TODO: Should be priority list based on the cost of the solution in each node
 
-        # Find initial path for this agent and send it to all other agents
+        # Find initial path for this agent and send it to all agents
         my_root_path = self._find_shortest_path(constraints=[])
         self._root_solution[self.agent_id] = my_root_path
         outgoing_messages = []
@@ -62,7 +62,7 @@ class DMapfSolverAgent:
             self.state = DMapfSolverAgent.IN_PROGRESS_STATE
 
     def _handle_message(self, message: Message):
-        assert (type(message) != PathForAgentMessage)  # This messages should only be used in the initial state
+        assert (type(message) != PathForAgentMessage)  # Those messages should only be used in the initial state
 
         if isinstance(message, DeclareSolutionMessage):
             if self.incumbent_solution is None or self.incumbent_solution.cost() >= message.incumbent.cost():
@@ -134,7 +134,7 @@ class DMapfSolverAgent:
             return []
 
         else:
-            conflict = self._choose_conflict(conflicts)
+            conflict = _choose_conflict(conflicts)
             # TODO Implement: create a CT node with a constraint for this agent (self.agent_id). Add that node to
             #  this open list
 
@@ -143,7 +143,7 @@ class DMapfSolverAgent:
             if new_ct_node is not None:
                 self._add_to_open_list(new_ct_node)
             # TODO Implement: send a message to the other agent in this conflict, that will generate CT node that
-            #  constrain and replan that agent The resulting CT agent will be added to the open list of that agent
+            #  constrain and plan again that agent The resulting CT agent will be added to the open list of that agent
             #  when it handles the message
             message = DeclareConflictMessage(from_agent=self.agent_id,
                                              to_agent=conflict.agent2,
@@ -173,8 +173,8 @@ class DMapfSolverAgent:
         confilcts = []
         for other_agent in ct_node.solution.keys():
             if other_agent != self.agent_id:
-                pathLength = min(len(ct_node.solution[other_agent]), len(ct_node.solution[self.agent_id]))
-                for i in range(pathLength):
+                path_length = min(len(ct_node.solution[other_agent]), len(ct_node.solution[self.agent_id]))
+                for i in range(path_length):
                     if ct_node.solution[other_agent][i] == ct_node.solution[self.agent_id][i]:
                         confilcts.append(Conflict(ct_node.solution[other_agent][i], i, agent1=self.agent_id,
                                                   agent2=other_agent))
@@ -191,10 +191,6 @@ class DMapfSolverAgent:
         new_mapf_sol = copy.deepcopy(ct_node.solution)
         new_mapf_sol[self.agent_id] = new_path
         return ConstraintTreeNode(new_mapf_sol, new_constraints)
-
-    def _choose_conflict(self, conflicts: list):
-        # TODO Any way to choose is Ok for now
-        return conflicts[0]
 
     def is_done(self):
         """ Returns true if the agent has an incumbent solution and no potentially better solutions to examine """
@@ -228,3 +224,8 @@ class DMapfSolverAgent:
                 path.append(node_path.get_cur_pos())
                 path.reverse()
         return path
+
+
+def _choose_conflict(conflicts: list):
+    # TODO Any way to choose is Ok for now
+    return conflicts[0]

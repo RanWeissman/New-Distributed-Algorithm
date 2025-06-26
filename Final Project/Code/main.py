@@ -1,5 +1,5 @@
 
-from A_star_algorithm import calc_all_heuristic
+from a_star_algorithm import calc_all_heuristic
 from dmapf_solver import DMapfSolver
 from dmapf_solver_agent import DMapfSolverAgent
 from mapf import MapfProblem

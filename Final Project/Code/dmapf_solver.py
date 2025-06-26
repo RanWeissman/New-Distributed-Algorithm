@@ -17,7 +17,7 @@ class DMapfSolver:
         self.mapf_problem = mapf_problem
         self.solver_agents = solver_agents
 
-        # Setup the initial solution
+        # Set up the initial solution
         all_outgoing_messages = []
         for agent in self.solver_agents:
             outgoing_messages = agent.setup(self.mapf_problem)
