@@ -8,6 +8,13 @@ This project implements the **Distributed Conflict Based Search (DCBS)** algorit
 DCBS is a distributed version of the traditional Conflict Based Search (CBS) algorithm. It enables agents to independently plan their paths and coordinate via message passing to resolve conflicts, achieving scalability and near-optimal performance.
 
 ---
+## 👨‍💻 Authors
+
+The project was collaboratively developed by:
+
+- Ran Weissman  
+- Uriel Zaed
+---
 ## 🙏 Acknowledgment
 
 This project is inspired by the **Conflict-Based Search (CBS)** algorithm, a groundbreaking method for solving Multi-Agent Path Finding problems. We would like to express our deep appreciation to **Prof. Roni Stern**, who introduced CBS in collaboration with **Prof. Guni Sharon**, **Prof. Ariel Felner**, and **Prof. Nathan Sturtevant**.
